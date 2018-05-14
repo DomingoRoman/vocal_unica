@@ -6,11 +6,11 @@
 # crea una tabla con los valores de F1 y F2 
 # a partir de un TextGrid 
 # 
+
 # Asigna distintos valores dependiendo del sexo del informante
 # para crear el objeto Formant y luego obtener los valores
 
-# El nombre de archivo debe hacerse con el siguiente modelo
-##################    id_sexo_vocal   #####################
+# nombre de archivo con id_sexo_vocal
 # por ejemplo "001fa"
 
 # Selecciona el Sound y TextGrid 
@@ -42,7 +42,7 @@ To Formant (burg)... 0 5 valor 0.025 50
 # En el objeto Formant encuentra los valores para
 # F1, F2, para cada punto
 
-tabla = Create Table with column names: sonido$, npuntos, "id sexo tiempo emision vocal F1 F2"
+tabla = Create Table with column names: sonido$, npuntos, "id sexo vocal vocalFonol tiempo F1 F2"
 
 for i to npuntos
 	select textgrid
@@ -52,9 +52,9 @@ for i to npuntos
 	f1 = Get value at time... 1 'tiempopunto' Hertz Linear
 	f2 = Get value at time... 2 'tiempopunto' Hertz Linear
 	select tabla 
-	Set string value: i, "vocal", vocal$
+	Set string value: i, "vocalFonol", vocal$
 	Set string value: i, "sexo", sexo$
-	Set numeric value: i, "emision", i
+	Set numeric value: i, "vocal", i
 	Set numeric value: i, "tiempo", tiempopunto
 	Set numeric value: i, "id", id
 	Set numeric value: i, "F1", f1
@@ -63,5 +63,4 @@ endfor
 
 #Selecciona el objeto Formant y lo borra
 select Formant 'sonido$'
-pause
 Remove
