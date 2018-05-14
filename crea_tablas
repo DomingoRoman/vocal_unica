@@ -63,4 +63,6 @@ endfor
 
 #Selecciona el objeto Formant y lo borra
 select Formant 'sonido$'
+plus sonido
+plus textgrid
 Remove
