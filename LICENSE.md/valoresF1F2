@@ -1,13 +1,16 @@
 # Laboratorio de Fonética de la Facultad de Humanidades,
-# USACH 2016
-# Este script proporciona la etiqueta y los valores 
-# de F1 y F2 a partir de un TextGrid
-# corregido 2018
-
+# USACH 2018
+# Este script fue hecho para una investigación sobre
+# enunciados con una única vocal (y sin sonidos nasales)
+# Crea el objeto Formant
+# crea una tabla con los valores de F1 y F2 
+# a partir de un TextGrid 
+# 
 # Asigna distintos valores dependiendo del sexo del informante
 # para crear el objeto Formant y luego obtener los valores
 
-# nombre de archivo con id_sexo_vocal
+# El nombre de archivo debe hacerse con el siguiente modelo
+##################    id_sexo_vocal   #####################
 # por ejemplo "001fa"
 
 # Selecciona el Sound y TextGrid 
@@ -16,14 +19,13 @@ sonido = selected ("Sound")
 sonido$ = selected$ ("Sound")
 textgrid = selected ("TextGrid")
 
+select textgrid
+npuntos = Get number of points: 1
+
 id$ = left$(sonido$, 3)
 id = number(id$)
-
 sexo$ = mid$(sonido$, 4, 1)
 vocal$ =right$(sonido$,1)
-
-writeInfoLine: sonido$,tab$, id$, tab$,id,tab$,sexo$, tab$, vocal$
-
 
 if sexo$ = "m"
 	valor = 5000
@@ -33,75 +35,33 @@ elsif sexo$ = "i"
 	valor = 7000
 endif
 
-select Sound 'sonido$'
-To Formant (burg)... 0 5 'valor' 0.025 50
+select sonido
+To Formant (burg)... 0 5 valor 0.025 50
 
 # En el TextGrid, busca el número de marcas, y las etiquetas existentes.
 # En el objeto Formant encuentra los valores para
-# F1, F2, para cada punto 
-# Imprime los datos en la pantalla.
+# F1, F2, para cada punto
 
-select textgrid
-ndepunto = Get number of points... 1
+tabla = Create Table with column names: sonido$, npuntos, "id sexo tiempo emision vocal F1 F2"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-tabla = Create Table with column names: seudonimo$, ndepunto, "sexo emision vocal F1 F2"
-
-for i to ndepunto
-	select TextGrid 'textgrid$'
+for i to npuntos
+	select textgrid
 	tiempopunto = Get time of point... 1 'i'
-	etiquetapunto$ = Get label of point... 1 'i'
 	# seleccionar objeto formantes 
 	select Formant 'sonido$'
 	f1 = Get value at time... 1 'tiempopunto' Hertz Linear
 	f2 = Get value at time... 2 'tiempopunto' Hertz Linear
 	select tabla 
-	Set string value: i, "vocal", etiquetapunto$
+	Set string value: i, "vocal", vocal$
 	Set string value: i, "sexo", sexo$
-	Set numeric value: i, "emision", emision
+	Set numeric value: i, "emision", i
+	Set numeric value: i, "tiempo", tiempopunto
+	Set numeric value: i, "id", id
 	Set numeric value: i, "F1", f1
 	Set numeric value: i, "F2", f2
 endfor
 
-select tabla
-
-for i to ndepunto
-	valorvocal$ = Get value: i, "vocal"
-	if valorvocal$ = "a" or valorvocal$ = "A"
-		Set string value: i, "vocal", "a"
-	endif
-
-	if valorvocal$ = "e" or valorvocal$ = "E"
-		Set string value: i, "vocal", "e"
-	endif
-
-	if valorvocal$ = "i" or valorvocal$ = "I"
-		Set string value: i, "vocal", "i" 
-	endif
- 
-	if valorvocal$ = "o" or valorvocal$ = "O"
-		Set string value: i, "vocal", "o"
-	endif
-
-	if valorvocal$ = "u" or valorvocal$ = "U"
-		Set string value: i, "vocal", "u"
-	endif
-endfor
-
 #Selecciona el objeto Formant y lo borra
 select Formant 'sonido$'
+pause
 Remove
