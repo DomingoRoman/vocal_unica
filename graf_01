@@ -1,0 +1,66 @@
+# Laboratorio de Fonética de la Facultad de Humanidades,
+# USACH 2018
+# Este script fue hecho para una investigación sobre
+# enunciados con una única vocal (y sin sonidos nasales)
+# Crea el objeto Formant
+# crea una tabla con los valores de F1 y F2 
+# a partir de un TextGrid 
+# 
+
+# Asigna distintos valores dependiendo del sexo del informante
+# para crear el objeto Formant y luego obtener los valores
+
+# nombre de archivo con id_sexo_vocal
+# por ejemplo "001fa"
+
+# Selecciona el Sound y TextGrid 
+
+sonido = selected ("Sound")
+sonido$ = selected$ ("Sound")
+textgrid = selected ("TextGrid")
+
+select textgrid
+npuntos = Get number of points: 1
+
+id$ = left$(sonido$, 3)
+id = number(id$)
+sexo$ = mid$(sonido$, 4, 1)
+vocal$ =right$(sonido$,1)
+
+if sexo$ = "m"
+	valor = 5000
+elsif sexo$ = "f"
+	valor = 5500
+elsif sexo$ = "i"
+	valor = 7000
+endif
+
+select sonido
+To Formant (burg)... 0 5 valor 0.025 50
+
+# En el TextGrid, busca el número de marcas, y las etiquetas existentes.
+# En el objeto Formant encuentra los valores para
+# F1, F2, para cada punto
+
+tabla = Create Table with column names: sonido$, npuntos, "id sexo vocal vocalFonol tiempo F1 F2"
+
+for i to npuntos
+	select textgrid
+	tiempopunto = Get time of point... 1 'i'
+	# seleccionar objeto formantes 
+	select Formant 'sonido$'
+	f1 = Get value at time... 1 'tiempopunto' Hertz Linear
+	f2 = Get value at time... 2 'tiempopunto' Hertz Linear
+	select tabla 
+	Set string value: i, "vocalFonol", vocal$
+	Set string value: i, "sexo", sexo$
+	Set numeric value: i, "vocal", i
+	Set numeric value: i, "tiempo", tiempopunto
+	Set numeric value: i, "id", id
+	Set numeric value: i, "F1", f1
+	Set numeric value: i, "F2", f2
+endfor
+
+#Selecciona el objeto Formant y lo borra
+select Formant 'sonido$'
+Remove
