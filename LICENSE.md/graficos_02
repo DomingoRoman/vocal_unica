@@ -1,0 +1,402 @@
+tab = selected("Table")
+
+tab_f = Extract rows where column (text): "sexo", "is equal to", "f"
+
+select tab
+
+tab_f_a = Extract rows where column (text): "vocal_fonol", "is equal to", "a"
+select tab
+tab_f_e = Extract rows where column (text): "vocal_fonol", "is equal to", "e"
+select tab
+tab_f_i = Extract rows where column (text): "vocal_fonol", "is equal to", "i"
+select tab
+tab_f_o = Extract rows where column (text): "vocal_fonol", "is equal to", "o"
+select tab
+tab_f_u = Extract rows where column (text): "vocal_fonol", "is equal to", "u"
+
+
+
+# VOCAL A
+
+select tab_f_a
+
+nfilas_a = Get number of rows
+
+mitad_a = (round(33/2))-1
+
+tab_f_a_first = Extract rows where column (number): "vocal", "less than", mitad_a
+
+select tab_f_a
+
+tab_f_a_second = Extract rows where column (number): "vocal", "greater than or equal to", mitad_a
+
+select tab_f_a_first
+
+f1_a_first = Get mean: "F1"
+f2_a_first = Get mean: "F2"
+
+select tab_f_a_second
+
+f1_a_second = Get mean: "F1"
+f2_a_second = Get mean: "F2"
+
+# VOCAL E
+select tab_f_e
+
+nfilas_e = Get number of rows
+
+mitad_e = (round(33/2))-1
+
+tab_f_e_first = Extract rows where column (number): "vocal", "less than", mitad_e
+
+select tab_f_e
+
+tab_f_e_second = Extract rows where column (number): "vocal", "greater than or equal to", mitad_e
+
+select tab_f_e_first
+
+f1_e_first = Get mean: "F1"
+f2_e_first = Get mean: "F2"
+
+select tab_f_e_second
+
+f1_e_second = Get mean: "F1"
+f2_e_second = Get mean: "F2"
+
+# VOCAL I
+
+select tab_f_i
+
+nfilas_i = Get number of rows
+
+mitad_i = (round(33/2))-1
+
+tab_f_i_first = Extract rows where column (number): "vocal", "less than", mitad_e
+
+select tab_f_i
+
+tab_f_i_second = Extract rows where column (number): "vocal", "greater than or equal to", mitad_i
+
+select tab_f_i_first
+
+f1_i_first = Get mean: "F1"
+f2_i_first = Get mean: "F2"
+
+select tab_f_i_second
+
+f1_i_second = Get mean: "F1"
+f2_i_second = Get mean: "F2"
+
+
+# VOCAL O
+
+select tab_f_o
+
+nfilas_o = Get number of rows
+
+mitad_o = (round(33/2))-1
+
+tab_f_o_first = Extract rows where column (number): "vocal", "less than", mitad_o
+
+select tab_f_o
+
+tab_f_o_second = Extract rows where column (number): "vocal", "greater than or equal to", mitad_o
+
+select tab_f_o_first
+
+f1_o_first = Get mean: "F1"
+f2_o_first = Get mean: "F2"
+
+select tab_f_o_second
+
+f1_o_second = Get mean: "F1"
+f2_o_second = Get mean: "F2"
+
+
+# VOCAL U
+
+select tab_f_u
+
+nfilas_u = Get number of rows
+
+mitad_u = (round(33/2))-1
+
+tab_f_u_first = Extract rows where column (number): "vocal", "less than", mitad_u
+
+select tab_f_u
+
+tab_f_u_second = Extract rows where column (number): "vocal", "greater than or equal to", mitad_u
+
+select tab_f_u_first
+
+f1_u_first = Get mean: "F1"
+f2_u_first = Get mean: "F2"
+
+select tab_f_u_second
+
+f1_u_second = Get mean: "F1"
+f2_u_second = Get mean: "F2"
+
+
+
+# gráficos
+# con rojo primera mitad
+# azul segunda mitad
+
+Erase all
+Select outer viewport: 0.5, 8, 1, 7
+Draw inner box
+Axes: 3000, 300, 1500, 200
+
+Red
+select tab_f_a_first
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+select tab_f_a_second
+Blue
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+
+Red
+select tab_f_e_first
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+select tab_f_e_second
+Blue
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+
+Red
+select tab_f_i_first
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+select tab_f_i_second
+Blue
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+
+Red
+select tab_f_o_first
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+select tab_f_o_second
+Blue
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+
+Red
+select tab_f_u_first
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+select tab_f_u_second
+Blue
+Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocal_fonol", 1, 12, "no"
+
+Black
+Text top: "no", "Promedio y dispersión de las cinco vocales"
+Marks left every: 1, 200, "yes", "yes", "yes"
+Marks bottom every: 1, 400, "yes", "yes", "yes"
+pause
+
+select tab_f_a_first
+Erase all
+Select outer viewport: 0.5, 8, 1, 4
+Draw inner box
+Axes: 0, mitad_a+1, 0, 3500
+Red
+
+for i to mitad_a
+	One mark bottom: i, "yes", "yes", "no", ""
+endfor
+
+for i to mitad_a
+		f1 = Get value: 1, "F1"
+		f2 = Get value: 1, "F2"
+		Paint circle (mm): "red", i, f1, 1
+		Paint circle (mm): "magenta", i, f2, 1
+endfor
+
+
+Axes: 0, mitad_a+1, 0, 3500
+select tab_f_a_second
+for i to mitad_a
+		f1 = Get value: i, "F1"
+		f2 = Get value: i, "F2"
+		Paint circle (mm): "maroon", i, f1, 1
+		Paint circle (mm): "purple", i, f2, 1
+endfor
+
+Marks left every: 1, 500, "no", "yes", "yes"
+Marks left every: 1, 1000, "yes", "no", "no"
+Text top: "no", "Variación vocal /a/"
+
+pause
+
+
+
+
+Erase all
+Text top: "no", "Variación vocal /e/"
+
+select tab_f_e_first
+
+Erase all
+Select outer viewport: 0.5, 8, 1, 4
+Draw inner box
+Axes: 0, mitad_a+1, 0, 3500
+Red
+
+for i to mitad_e
+	One mark bottom: i, "yes", "yes", "no", ""
+endfor
+
+for i to mitad_e
+		f1 = Get value: 1, "F1"
+		f2 = Get value: 1, "F2"
+		Paint circle (mm): "red", i, f1, 1
+		Paint circle (mm): "magenta", i, f2, 1
+endfor
+
+
+Axes: 0, mitad_e+1, 0, 3500
+select tab_f_e_second
+for i to mitad_e
+		f1 = Get value: i, "F1"
+		f2 = Get value: i, "F2"
+		Paint circle (mm): "maroon", i, f1, 1
+		Paint circle (mm): "purple", i, f2, 1
+endfor
+
+Marks left every: 1, 500, "no", "yes", "yes"
+Marks left every: 1, 1000, "yes", "no", "no"
+Text top: "no", "Variación vocal /e/"
+
+pause
+
+
+Erase all
+Text top: "no", "Variación vocal /i/"
+
+select tab_f_i_first
+
+Erase all
+Select outer viewport: 0.5, 8, 1, 4
+Draw inner box
+Axes: 0, mitad_a+1, 0, 3500
+Red
+
+for i to mitad_i
+	One mark bottom: i, "yes", "yes", "no", ""
+endfor
+
+for i to mitad_i
+		f1 = Get value: 1, "F1"
+		f2 = Get value: 1, "F2"
+		Paint circle (mm): "red", i, f1, 1
+		Paint circle (mm): "magenta", i, f2, 1
+endfor
+
+
+Axes: 0, mitad_i+1, 0, 3500
+select tab_f_i_second
+for i to mitad_i
+		f1 = Get value: i, "F1"
+		f2 = Get value: i, "F2"
+		Paint circle (mm): "maroon", i, f1, 1
+		Paint circle (mm): "purple", i, f2, 1
+endfor
+
+Marks left every: 1, 500, "no", "yes", "yes"
+Marks left every: 1, 1000, "yes", "no", "no"
+Text top: "no", "Variación vocal /i/"
+
+pause
+
+Erase all
+Text top: "no", "Variación vocal /o/"
+
+select tab_f_o_first
+
+Erase all
+Select outer viewport: 0.5, 8, 1, 4
+Draw inner box
+Axes: 0, mitad_a+1, 0, 3500
+Red
+
+for i to mitad_o
+	One mark bottom: i, "yes", "yes", "no", ""
+endfor
+
+for i to mitad_o
+		f1 = Get value: 1, "F1"
+		f2 = Get value: 1, "F2"
+		Paint circle (mm): "red", i, f1, 1
+		Paint circle (mm): "magenta", i, f2, 1
+endfor
+
+
+Axes: 0, mitad_o+1, 0, 3500
+select tab_f_o_second
+for i to mitad_o
+		f1 = Get value: i, "F1"
+		f2 = Get value: i, "F2"
+		Paint circle (mm): "maroon", i, f1, 1
+		Paint circle (mm): "purple", i, f2, 1
+endfor
+
+Marks left every: 1, 500, "no", "yes", "yes"
+Marks left every: 1, 1000, "yes", "no", "no"
+Text top: "no", "Variación vocal /o/"
+
+pause
+
+Erase all
+Text top: "no", "Variación vocal /i/"
+
+select tab_f_u_first
+
+
+Erase all
+Select outer viewport: 0.5, 8, 1, 4
+Draw inner box
+Axes: 0, mitad_u+1, 0, 3500
+Red
+
+for i to mitad_u
+	One mark bottom: i, "yes", "yes", "no", ""
+endfor
+
+for i to mitad_u
+		f1 = Get value: 1, "F1"
+		f2 = Get value: 1, "F2"
+		Paint circle (mm): "red", i, f1, 1
+		Paint circle (mm): "magenta", i, f2, 1
+endfor
+
+
+Axes: 0, mitad_u+1, 0, 3500
+select tab_f_u_second
+for i to mitad_u
+		f1 = Get value: i, "F1"
+		f2 = Get value: i, "F2"
+		Paint circle (mm): "maroon", i, f1, 1
+		Paint circle (mm): "purple", i, f2, 1
+endfor
+
+Marks left every: 1, 500, "no", "yes", "yes"
+Marks left every: 1, 1000, "yes", "no", "no"
+Text top: "no", "Variación vocal /u/"
+
+pause
+
+
+# Elimina objetos del panel Praat Objects
+select tab_f
+plus tab_f_a
+plus tab_f_a_first
+plus tab_f_a_second
+plus tab_f_e
+plus tab_f_e_first
+plus tab_f_e_second
+plus tab_f_i
+plus tab_f_i_first
+plus tab_f_i_second
+plus tab_f_o
+plus tab_f_o_first
+plus tab_f_o_second
+plus tab_f_u
+plus tab_f_u_first
+plus tab_f_u_second
+
+Remove
