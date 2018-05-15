@@ -157,10 +157,10 @@ for i to mitad_a
 endfor
 
 for i to mitad_a
-		f1 = Get value: 1, "F1"
-		f2 = Get value: 1, "F2"
-		Paint circle (mm): "red", i, f1, 1
-		Paint circle (mm): "magenta", i, f2, 1
+	f1 = Get value: 1, "F1"
+	f2 = Get value: 1, "F2"
+	Paint circle (mm): "red", i, f1, 1
+	Paint circle (mm): "magenta", i, f2, 1
 endfor
 
 Axes: 0, mitad_a+1, 0, 3500
