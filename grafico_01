@@ -1,3 +1,6 @@
+# Crea los gráficos a partir de una tabla de datos
+# hasta el momento solo para vocales femeninas
+
 tab = selected("Table")
 
 tab_f = Extract rows where column (text): "sexo", "is equal to", "f"
