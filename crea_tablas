@@ -2,14 +2,11 @@
 # USACH 2018
 # Este script fue hecho para una investigación sobre
 # enunciados con una única vocal (y sin sonidos nasales)
-# Crea el objeto Formant
+# Crea el objeto Formant (para mujer, hombre o infante)
 # crea una tabla con los valores de F1 y F2 
-# a partir de un TextGrid 
+# a partir de un TextGrid con un tier de punto
+# con marcas pero sin etiquetas.
 # 
-
-# Asigna distintos valores dependiendo del sexo del informante
-# para crear el objeto Formant y luego obtener los valores
-
 # nombre de archivo con id_sexo_vocal
 # por ejemplo "001fa"
 
