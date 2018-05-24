@@ -1,9 +1,7 @@
-
-
-
-
-
-
+# Script para Praat 6.0.40
+# Este script 
+# a) genera una tabla con los datos del informante a partir de un formulario
+# b) guarda esa tabla
 
 form datos
 	real id
@@ -18,7 +16,6 @@ choice nacionalidad 1
 endform
 
 id$ = string$(id)
-
 coda$ = ".Table"
 nombretabla$ = id$+coda$
 
@@ -31,3 +28,4 @@ Set numeric value: 1, "sexo", sexo
 Set numeric value: 1, "nacionalidad", nacionalidad
 
 Save as tab-separated file: "'nombretabla$'"
+Remove
