@@ -149,9 +149,11 @@ Blue
 Draw ellipses: "F2", 3000, 300, "F1", 1500, 200, "vocalFonol", 1, 12, "no"
 
 Black
-Text top: "no", "Promedio y dispersión de las cinco vocales"
+Text top: "no", "Promedio y dispersión de las cinco vocales (∑ = 1)"
 Marks left every: 1, 200, "yes", "yes", "yes"
 Marks bottom every: 1, 400, "yes", "yes", "yes"
+Select outer viewport: 0.5, 7.45, 1.15, 7
+
 pause
 
 
@@ -197,7 +199,7 @@ pause
 
 Erase all
 
-#### E
+#### E
 
 Text top: "no", "Variación vocal /e/"
 
@@ -276,7 +278,7 @@ pause
 
 Erase all
 
-## O
+## O
 
 Text top: "no", "Variación vocal /o/"
 
