@@ -1,11 +1,10 @@
 form datos
 	real id
-	word iniciales xxx
-real año_de_nacimiento
+	word iniciales 
+real año_de_nacimiento 
 choice sexo 1
 	option feme
 	option masc
-
 choice nacionalidad 1
 	option chilena
 	option otra
@@ -19,11 +18,9 @@ nombretabla$ = id$+coda$
 Create Table with column names: iniciales$, 1, "id iniciales edad sexo nacionalidad"
 
 Set string value: 1, "iniciales", iniciales$
-
 Set numeric value: 1, "id", id
-
 Set numeric value: 1, "edad", 2018-año_de_nacimiento
 Set numeric value: 1, "sexo", sexo
 Set numeric value: 1, "nacionalidad", nacionalidad
 
-Save as tab-separated file: "/Users/imac/Documents/2018/vocal_repetida/tablas/informantes/'nombretabla$'
+Save as tab-separated file: "'nombretabla$'"
