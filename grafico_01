@@ -98,6 +98,24 @@ f2_u_second = Get mean: "F2"
 
 
 
+select tab_f_a_first
+plus tab_f_e_first
+plus tab_f_i_first
+plus tab_f_o_first
+plus tab_f_u_first
+
+tab_first = Append
+
+
+select tab_f_a_second
+plus tab_f_e_second
+plus tab_f_i_second
+plus tab_f_o_second
+plus tab_f_u_second
+
+tab_second = Append
+
+pause
 # gráficos
 # con rojo primera mitad
 # azul segunda mitad
@@ -355,6 +373,40 @@ endfor
 Marks left every: 1, 500, "no", "yes", "yes"
 Marks left every: 1, 1000, "yes", "no", "no"
 Text top: "no", "Variación vocal /u/"
+
+pause
+
+
+Erase all
+
+select tab_first
+
+Select outer viewport: 0.5, 8, 0.5, 6
+Red
+Box plots where: "F1", "vocalFonol", 0, 3100, "no", "1"
+
+select tab_second
+Select outer viewport: 0.8, 8.3, 0.5, 6
+Blue
+Box plots where: "F1", "vocalFonol", 0, 3100, "no", "1"
+Select outer viewport: 0.5, 8, 0.5, 6
+
+Select outer viewport: 0.8, 8.2, 0.5, 6
+White
+Box plots where: "F2", "vocalFonol", 0, 3100, "yes", "1"
+select tab_first
+Red
+Box plots where: "F2", "vocalFonol", 0, 3100, "no", "1"
+select tab_second
+Select outer viewport: 0.8, 8.3, 0.5, 6
+Blue
+Box plots where: "F2", "vocalFonol", 0, 3100, "no", "1"
+
+
+
+
+
+
 
 pause
 
