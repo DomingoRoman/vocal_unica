@@ -96,8 +96,6 @@ select tab_f_u_second
 f1_u_second = Get mean: "F1"
 f2_u_second = Get mean: "F2"
 
-
-
 select tab_f_a_first
 plus tab_f_e_first
 plus tab_f_i_first
@@ -105,7 +103,6 @@ plus tab_f_o_first
 plus tab_f_u_first
 
 tab_first = Append
-
 
 select tab_f_a_second
 plus tab_f_e_second
@@ -129,7 +126,6 @@ Draw inner box
 Axes: 3000, 300, 1500, 200
 Text left: "yes", "F1"
 Text bottom: "yes", "F2"
-
 
 Red
 select tab_f_a_first
@@ -173,8 +169,6 @@ Marks bottom every: 1, 400, "yes", "yes", "yes"
 Select outer viewport: 0.5, 7.45, 1.15, 7
 
 pause
-
-
 
 #### Pistas #####
 
@@ -238,7 +232,6 @@ for i to mitad_e
 	Paint circle (mm): "red", i, f1, 1
 	Paint circle (mm): "magenta", i, f2, 1
 endfor
-
 
 Axes: 0, mitad_e+1, 0, 3500
 select tab_f_e_second
@@ -373,7 +366,6 @@ endfor
 Marks left every: 1, 500, "no", "yes", "yes"
 Marks left every: 1, 1000, "yes", "no", "no"
 Text top: "no", "Variación vocal /u/"
-
 pause
 
 
@@ -383,33 +375,35 @@ select tab_first
 
 Select outer viewport: 0.5, 8, 0.5, 6
 Red
-Box plots where: "F1", "vocalFonol", 0, 3100, "no", "1"
+Box plots where: "F1", "vocalFonol", 0, 3500, "no", "1"
 
+Select outer viewport: 0.7, 8.2, 0.5, 6
 select tab_second
-Select outer viewport: 0.8, 8.3, 0.5, 6
 Blue
-Box plots where: "F1", "vocalFonol", 0, 3100, "no", "1"
+Box plots where: "F1", "vocalFonol", 0, 3500, "no", "1"
+
 Select outer viewport: 0.5, 8, 0.5, 6
 
-Select outer viewport: 0.8, 8.2, 0.5, 6
 White
-Box plots where: "F2", "vocalFonol", 0, 3100, "yes", "1"
+Box plots where: "F2", "vocalFonol", 0, 3500, "yes", "1"
 select tab_first
 Red
-Box plots where: "F2", "vocalFonol", 0, 3100, "no", "1"
+Box plots where: "F2", "vocalFonol", 0, 3500, "no", "1"
 select tab_second
-Select outer viewport: 0.8, 8.3, 0.5, 6
+Select outer viewport: 0.7, 8.2, 0.5, 6
 Blue
-Box plots where: "F2", "vocalFonol", 0, 3100, "no", "1"
+Box plots where: "F2", "vocalFonol", 0, 3500, "no", "1"
 
+Select outer viewport: 0.5, 8, 0.5, 6
 
+Marks left every: 1, 500, "yes", "yes", "yes"
+Text top: "yes", "Diagrama de cajas F1 y F2 (rojo = mitad 1; azul = mitad 2)"
+Text left: "yes", "Hz"
+Text bottom: "yes", "Vocales"
 
-
-
-
+Select outer viewport: 0.5, 7.45, 0.5, 6
 
 pause
-
 
 # Elimina objetos del panel Praat Objects
 
@@ -429,5 +423,7 @@ plus tab_f_o_second
 plus tab_f_u
 plus tab_f_u_first
 plus tab_f_u_second
+plus tab_first
+plus tab_second
 
 Remove
